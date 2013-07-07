@@ -119,12 +119,17 @@ You can set up intervals to trigger certain events every X amount of millisecond
 void setup()
 {
 	Event keepAlive = Event("event.keepAlive");
-    evtManager.triggerInterval(TimedTask(2000, keepAlive));  
+  evtManager.triggerInterval(TimedTask(2000, keepAlive));  
+}
+
+void loop()
+{
+  evtManager.tick();
 }
 
 ```
 
-This piece of code will set up the EventManager to trigger a new "event.keepAlive" event every 2000 milliseconds (2 seconds).
+This piece of code will set up the EventManager to trigger a new "event.keepAlive" event every 2000 milliseconds (2 seconds). You must call the tick() function, so that the event manager knows where in time it is.
 
 4. Event Arguments
 ------------------
