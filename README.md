@@ -9,6 +9,7 @@ to respond to certain "events" quite easily.
 * Usage
 * Timed Events
 * Event Arguments
+* Limitations
 
 
 1. Installation
@@ -173,3 +174,17 @@ void loop()
 ```
 
 This will turn raise a new "on" event and one second after that, raise an event to turn the LED off again. Thus, this will result in a "blinking LED" sketch.
+
+5. Limitations
+--------------
+
+This library was mainly written for programming with the Arduino UNO. Since it has limited memory, there is a hardcoded limit on the amount of events.
+
+``` cpp
+
+TimedTask _interval[5]; // 5 available interval slots
+Subscriber _sub[10]; // 10 available subscriber slots
+
+```
+
+This can be changed in the Event.h header file.
